@@ -7,20 +7,22 @@ import React, { useState } from 'react'
 
 
 const App = () => {
+  // expression , line you can replace by single value 
+  // statement , line you cannot replace by multiple lines
 
-  // const [counter, setCounter] = useState(0)
+  // expression => line can log in console 
 
-  let counter = 0
-
+  // statement => line cannot log in console
 
   return (
+    // JSX only accept expression not statement
     <div>
 
-      <button
-        onClick={() => counter++} // not allowed 
-      >increase</button>
+      <h1>Expressions And Statements</h1>
 
-      <p> {counter}</p>
+      {
+        console.log(5 + 3)
+      }
 
     </div>
   )
