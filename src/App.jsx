@@ -1,26 +1,26 @@
-// props and states
-import React from 'react'
-import Counter from './components/Counter'
+// before using conditional rendering 
+
+//1.we can use let,const if no outside modifications 
+//2.jsx only accept expression not statement
+
+import React, { useState } from 'react'
+
 
 const App = () => {
+
+  // const [counter, setCounter] = useState(0)
+
+  let counter = 0
+
+
   return (
     <div>
 
-      <Counter
-      title = "counter 1 "
-      
-      />
+      <button
+        onClick={() => counter++} // not allowed 
+      >increase</button>
 
-      <Counter
-            title = "counter 2 "
-
-      />
-
-      <Counter
-            title = "counter 3 "
-
-      />
-
+      <p> {counter}</p>
 
     </div>
   )
