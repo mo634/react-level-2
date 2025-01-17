@@ -1,31 +1,44 @@
-// before using conditional rendering 
+// conditional rendering 
+//1. if else(statement)not allowed in JSX
+//2. ternary operator (expression) allowed in JSX 
+//3. logical AND operator(expression) allowed in JSX 
 
-//1.we can use let,const if no outside modifications 
-//2.jsx only accept expression not statement
 
-import React, { useState } from 'react'
-
+import React from 'react'
 
 const App = () => {
-  // expression , line you can replace by single value 
-  // statement , line you cannot replace by multiple lines
-
-  // expression => line can log in console 
-
-  // statement => line cannot log in console
+  const isLoggedIn = true
 
   return (
-    // JSX only accept expression not statement
     <div>
+      {/* if isLogged in is true show user logged in
+      else show user not logged in 
+      */}
 
-      <h1>Expressions And Statements</h1>
 
-      {
-        console.log(5 + 3)
-      }
-
+      <h1>
+        {
+          // ternary operator 
+          isLoggedIn ? "user logged in " : "not logged in "
+        }
+      </h1>
     </div>
   )
 }
 
 export default App
+
+// statement 
+
+// if(isLoggedIn){
+//   return "user logged in"
+// }
+// else{
+//   return "user not logged in"
+// }
+
+
+// // ternary operator
+
+// // condition ? "user logged in " :"user not logged in" 
+// isLoggedIn ?"user logged in" : "user not logged in" // expression
