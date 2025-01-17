@@ -1,13 +1,14 @@
 // conditional rendering 
-//1. if else(statement)not allowed in JSX
-//2. ternary operator (expression) allowed in JSX 
-//3. logical AND operator(expression) allowed in JSX 
+//1. ternary operator (expression) allowed in JSX ✅
+//2. logical AND operator(expression) allowed in JSX 
+//3. if else(statement)not allowed in JSX
 
 
 import React from 'react'
 
 const App = () => {
   const isLoggedIn = true
+  const isHasLinkedin = false
 
   return (
     <div>
@@ -20,6 +21,19 @@ const App = () => {
         {
           // ternary operator 
           isLoggedIn ? "user logged in " : "not logged in "
+        }
+      </h1>
+
+      <h1>
+        {/* {
+          isHasLinkedin ? "user has linkedin"
+            :
+            null
+        } */}
+
+        {
+          // logical AND operator
+          isHasLinkedin && "user has linkedin"
         }
       </h1>
     </div>
