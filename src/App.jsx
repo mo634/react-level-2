@@ -1,5 +1,5 @@
 // 1️⃣ practical example and use case for  conditional rendering
-
+import './style.css'
 import React, { useState } from 'react'
 import { FaRegCopy } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
@@ -23,11 +23,11 @@ const App = () => {
 
   }
   return (
-    <div>
+    <div className='container'>
 
-      <p>{content}</p>
+      <p className='content'>{content}</p>
 
-      <button onClick={handleCopy} >
+      <button onClick={handleCopy} className='copy-button' >
         {
           isClicked ? <FaCheck /> : <FaRegCopy />
         }
