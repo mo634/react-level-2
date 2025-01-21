@@ -1,50 +1,41 @@
-// conditional rendering 
-//1. ternary operator (expression) allowed in JSX ✅
-// -to write if statement in JSX
+// 1️⃣ practical example and use case for  conditional rendering
 
-//2. logical AND operator(expression) allowed in JSX 
-// -to write if statement in JSX without else value 
-
-
-//3. if else(statement)not allowed in JSX
-
-
-import React from 'react'
+import React, { useState } from 'react'
+import { FaRegCopy } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 
 const App = () => {
-  const isLoggedIn = true
-  const isHasLinkedin = false
-  //out jsx  
-  if (isLoggedIn && isHasLinkedin) {
-    return (
-      <div>
-        <h1>Welcome to my app</h1>
-      </div>
-    )
-  }
-  else {
-    return (
-      <div>
-        <h1>Please sign up</h1>
-      </div>
-    )
-  }
 
+  const [isClicked, setIsClicked] = useState(false)
+  const [content, setContent] = useState("mohamed")
+  // write logic
+
+  const handleCopy = async () => {
+    setIsClicked(true)
+
+    await navigator.clipboard.writeText(content)
+
+    setTimeout(() => {
+      setIsClicked(false)
+    }, 3000);
+
+
+
+  }
+  return (
+    <div>
+
+      <p>{content}</p>
+
+      <button onClick={handleCopy} >
+        {
+          isClicked ? <FaCheck /> : <FaRegCopy />
+        }
+      </button>
+
+
+    </div>
+  )
 }
 
 export default App
-
-// statement 
-
-// if(isLoggedIn){
-//   return "user logged in"
-// }
-// else{
-//   return "user not logged in"
-// }
-
-
-// // ternary operator
-
-// // condition ? "user logged in " :"user not logged in" 
-// isLoggedIn ?"user logged in" : "user not logged in" // expression
