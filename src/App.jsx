@@ -1,75 +1,29 @@
-// Keys=> index by default 
-//1. reorder using keys is more efficient 
-
+// keys according to states 
 import React, { useState } from 'react'
-
+import Item from './components/Item'
+import lodash from "lodash"
 const App = () => {
-  const [data, setData] = useState([
-    {
-      id: 1,
-      name: "a"
-    }
-    ,
-    {
-      id: 2,
-      name: "b"
-    }
-    ,
-    {
-      id: 3,
-      name: "c"
-    }
-  ])
+  const [color, setColor] = useState(['red', 'green', 'blue'])
+  // green blue red 
+
 
   const handleShuffle = () => {
-    setData([
-      data[1],
-      data[2],
-      data[0]
-    ])
+    setColor(lodash.shuffle(color))
   }
-
-  const handleReset = () => {
-    setData([
-      {
-        id: 1,
-        name: "a"
-      }
-      ,
-      {
-        id: 2,
-        name: "b"
-      }
-      ,
-      {
-        id: 3,
-        name: "c"
-      }
-    ])
-  }
-
-  // bca 
-  // abc
   return (
     <div>
-      <ul>
-        {/* <li>{data[0]}</li>
-        <li>{data[1]}</li>
-        <li>{data[2]}</li> */}
-
-        {
-          data.map((item) => <li key={item.id}>{item.name}</li>)
-        }
-      </ul>
+      {
+        color.map((elem) =>
+          <Item
+            key={elem}
+            color={elem}
+          />)
+      }
 
       <button
         onClick={handleShuffle}
-      >Shuffle</button>
-
-      <button
-        onClick={handleReset}
       >
-        Reset
+        shuffle
       </button>
     </div>
   )
