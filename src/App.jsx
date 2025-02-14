@@ -1,32 +1,23 @@
-// keys according to states 
-import React, { useState } from 'react'
-import Item from './components/Item'
-import lodash from "lodash"
+import React, { useRef } from 'react'
+
 const App = () => {
-  const [color, setColor] = useState(['red', 'green', 'blue'])
-  // green blue red 
+    const inputRef = useRef()
+    const handleSubmit = () => {
+        console.log(inputRef.current.value)
+    }
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder='Enter your name'
+                ref={inputRef}
+            />
 
-
-  const handleShuffle = () => {
-    setColor(lodash.shuffle(color))
-  }
-  return (
-    <div>
-      {
-        color.map((elem) =>
-          <Item
-            key={elem}
-            color={elem}
-          />)
-      }
-
-      <button
-        onClick={handleShuffle}
-      >
-        shuffle
-      </button>
-    </div>
-  )
+            <button
+                onClick={handleSubmit}
+            >Submit</button>
+        </div>
+    )
 }
 
 export default App
